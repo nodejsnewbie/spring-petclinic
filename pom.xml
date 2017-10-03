@@ -29,6 +29,7 @@
     <thymeleaf.version>3.0.6.RELEASE</thymeleaf.version>
 
     <cobertura.version>2.7</cobertura.version>
+    <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
      <docker.image.prefix>springio</docker.image.prefix>
   </properties>
 
@@ -118,7 +119,24 @@
   </dependencies>
 
   <build>
-    <plugins>
+     <pluginManagement>
+      <plugins>
+       <plugin>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>2.5.2</version>
+        <executions>
+          <execution>
+            <id>default-install</id>
+            <phase>install</phase>
+            <goals>
+              <goal>install</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      </plugins>
+      </pluginManagement>  
+    <plugins>    
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
